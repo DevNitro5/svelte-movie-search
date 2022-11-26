@@ -43,10 +43,12 @@
   let promise = searchMovies(searchTerm);
 
   function onSearch() {
-    const currentSearch = searchTerm.toLowerCase().trim();
+    // removing unnecessary space from user search     
+    const currentSearch = searchTerm.trim();
+    // rendering trim search     
     searchTerm = currentSearch;
 
-    if (prevSearch.toLowerCase() === currentSearch) return;
+    if (prevSearch.toLowerCase() === currentSearch.toLowerCase()) return;
 
     prevSearch = currentSearch;
     promise = searchMovies(currentSearch);
